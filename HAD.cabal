@@ -18,11 +18,13 @@ cabal-version:       >=1.8
 
 executable 1had
   main-is:             Main.hs
-  build-depends:       base >= 4.4
-               ,       time ==1.4.*
-               ,       doctest ==0.9.*
-               ,       QuickCheck >= 2.6
-               ,       filepath==1.3.*
-               ,       process ==1.1.*
-               ,       transformers >= 0.3
+  other-modules:       HAD
+                     , HAD.Date
+  build-depends:       base >= 4.7 && < 5
+               ,       time == 1.6.*
+               ,       doctest == 0.11.*
+               ,       QuickCheck == 2.9.*
+               ,       filepath == 1.4.*
+               ,       process == 1.4.*
+               ,       transformers == 0.5.*
   hs-source-dirs:      src
