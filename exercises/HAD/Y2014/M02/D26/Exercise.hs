@@ -12,4 +12,11 @@ module HAD.Y2014.M02.D26.Exercise where
 -- Nothing
 --
 sumIfAll :: Num a => [Maybe a] -> Maybe a
-sumIfAll =  undefined
+sumIfAll = (sum <$>) . sequence
+
+sumIfAll' :: Num a => [Maybe a] -> Maybe a
+sumIfAll' = (sum <$>) . foldr (\x acc ->
+                    case (x, acc) of
+                      (Just x, Just acc) -> Just (x : acc)
+                      _ -> Nothing
+                    ) (Just [])
