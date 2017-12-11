@@ -12,4 +12,10 @@ module HAD.Y2014.M02.D27.Exercise where
 -- Nothing
 --
 divIfMultiple :: Integral a => a -> [a] -> Maybe [a]
-divIfMultiple x = undefined
+divIfMultiple x = sequence . (divBy x <$>)
+
+
+divBy :: Integral a => a -> a -> Maybe a
+divBy y x = case divMod x y of
+  (z, 0) -> Just z
+  _ -> Nothing
