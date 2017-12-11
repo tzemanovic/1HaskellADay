@@ -16,4 +16,4 @@ module HAD.Y2014.M03.D04.Exercise where
 -- True
 --
 checkSort :: Ord a => [a] -> Bool
-checkSort =  undefined
+checkSort = and . (zipWith (<=) <*> tail)
